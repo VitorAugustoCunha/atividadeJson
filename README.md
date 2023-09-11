@@ -31,6 +31,7 @@ Este é um projeto de exemplo que demonstra como criar um aplicativo da web Java
     "idade": 19,
     "sexo": "Masculino"
 }
+```
 
 5. O aplicativo processará as solicitações, analisará os dados JSON e responderá com uma mensagem de sucesso.
 
