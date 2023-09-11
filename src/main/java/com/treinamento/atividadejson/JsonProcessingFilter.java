@@ -21,7 +21,7 @@ public class JsonProcessingFilter implements Filter {
             throws IOException, ServletException {
         if (request instanceof HttpServletRequest) {
             HttpServletRequest httpRequest = (HttpServletRequest) request;
-            if ("POST".equalsIgnoreCase(httpRequest.getMethod()) || "PUT".equalsIgnoreCase(httpRequest.getMethod())) {
+            if ("POST".equalsIgnoreCase(httpRequest.getMethod())) {
                 try {
                 	BufferedReader reader = httpRequest.getReader();
                 	String jsonData = reader.lines().collect(Collectors.joining());
@@ -34,19 +34,7 @@ public class JsonProcessingFilter implements Filter {
                     Person yourObject = new Person(nome, email, idade, sexo);
 
                     httpRequest.setAttribute("yourObject", yourObject);
-
-                    response.setContentType("application/json");
-                    response.setCharacterEncoding("UTF-8");
-
-                    try (PrintWriter out = response.getWriter()) {
-                        out.println("<html><body>");
-                        out.println("<h1>Dados recebidos com sucesso!</h1>");
-                        out.println("<p>Nome: " + nome + "</p>");
-                        out.println("<p>Email: " + email + "</p>");
-                        out.println("<p>Idade: " + idade + "</p>");
-                        out.println("<p>Sexo: " + sexo + "</p>");
-                        out.println("</body></html>");
-                    }
+     
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -59,8 +47,12 @@ public class JsonProcessingFilter implements Filter {
     private String getValueFromJson(String jsonData, String key) {
         int startIndex = jsonData.indexOf("\"" + key + "\"");
         if (startIndex >= 0) {
-            startIndex = jsonData.indexOf(":", startIndex) + 1; 
-            int endIndex = jsonData.indexOf(",", startIndex); 
+            startIndex = jsonData.indexOf(":", startIndex) + 1;
+            int endIndex = jsonData.indexOf(",", startIndex);
+            int closingBraceIndex = jsonData.indexOf("}", startIndex);
+            if (closingBraceIndex != -1 && (endIndex == -1 || closingBraceIndex < endIndex)) {
+                endIndex = closingBraceIndex;
+            }
             if (endIndex == -1) {
                 endIndex = jsonData.length();
             }
