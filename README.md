@@ -22,7 +22,15 @@ Este é um projeto de exemplo que demonstra como criar um aplicativo da web Java
 
 3. Implante o aplicativo em um servidor da web compatível com Servlets, como o Apache Tomcat.
 
-4. Envie solicitações POST ou PUT para a URL "/json" contendo dados JSON válidos no formato especificado.
+4. Envie solicitações POST para a URL "/json" contendo dados JSON válidos no formato especificado. Por exemplo:
+
+```json
+{
+    "nome": "Vitor",
+    "email": "Vitor@gmail.com",
+    "idade": 19,
+    "sexo": "Masculino"
+}
 
 5. O aplicativo processará as solicitações, analisará os dados JSON e responderá com uma mensagem de sucesso.
 
