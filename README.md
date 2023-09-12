@@ -44,7 +44,7 @@ CREATE TABLE Person (
 );
 ```
 
-##Instalar H2 no projeto
+## Instalar H2 no projeto
 
 1. **Baixe o JAR do H2 Database**:
    - Acesse o [site oficial do H2 Database](https://www.h2database.com/html/main.html).
