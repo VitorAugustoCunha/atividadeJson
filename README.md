@@ -44,6 +44,45 @@ CREATE TABLE Person (
 );
 ```
 
+##Instalar H2 no projeto
+
+1. **Baixe o JAR do H2 Database**:
+   - Acesse o [site oficial do H2 Database](https://www.h2database.com/html/main.html).
+   - Na seção "H2 Database Engine", clique no link "Download".
+   - Selecione a versão mais recente e faça o download do arquivo `h2-*.jar` (onde `*` representa a versão).
+
+2. **Crie uma pasta para as bibliotecas (libs)**:
+   - Dentro do diretório do seu projeto Java, crie uma pasta chamada "libs" (ou qualquer outro nome que você preferir) para armazenar as bibliotecas JAR externas.
+
+3. **Mova o JAR do H2 para a pasta "libs"**:
+   - Mova o arquivo JAR do H2 que você baixou na etapa 1 para a pasta "libs" criada na etapa 2.
+
+4. **Adicione o JAR do H2 ao Classpath do Projeto**:
+   - Abra seu ambiente de desenvolvimento (por exemplo, Eclipse, IntelliJ IDEA, NetBeans) e abra o projeto Java em que você deseja adicionar o H2.
+   - Configure o projeto para incluir o JAR do H2 em seu classpath. Isso pode variar dependendo do IDE que você está usando:
+     - **Eclipse**:
+       - Clique com o botão direito do mouse no projeto no "Explorador de Pacotes" (Package Explorer).
+       - Escolha "Propriedades" (Properties).
+       - No menu à esquerda, selecione "Java Build Path".
+       - Na guia "Libraries", clique em "Add JARs..." e selecione o JAR do H2 na pasta "libs".
+       - Clique em "Apply and Close" para salvar as alterações.
+     - **IntelliJ IDEA**:
+       - Clique com o botão direito do mouse no projeto no painel de navegação.
+       - Escolha "Open Module Settings".
+       - Na guia "Libraries", clique em "+" e escolha "Java".
+       - Selecione o JAR do H2 na pasta "libs" e clique em "OK".
+     - **NetBeans**:
+       - Clique com o botão direito do mouse no projeto na janela "Projetos".
+       - Escolha "Propriedades".
+       - No menu à esquerda, selecione "Bibliotecas".
+       - Clique em "Adicionar JAR/Pasta" e selecione o JAR do H2 na pasta "libs".
+
+5. **Salve as Alterações e Reconstrua o Projeto**:
+   - Após adicionar o JAR do H2 ao classpath, salve as alterações em seu IDE e reconstrua o projeto (geralmente, o IDE faz isso automaticamente).
+
+Agora, você deve ter o banco de dados H2 configurado no seu projeto Java e pronto para uso. Certifique-se de que a pasta "libs" e o JAR do H2 estejam incluídos em seu repositório de código-fonte para que outras pessoas que trabalham no projeto também possam acessar as bibliotecas necessárias.
+
+
 ## Como Usar
 
 1. Clone este repositório.
